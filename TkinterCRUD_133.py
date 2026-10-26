@@ -42,3 +42,19 @@ def get_all_nilai():
         SELECT id, nama_siswa, biologi, fisika, inggris, prediksi_fakultas 
         FROM nilai_siswa ORDER BY id DESC
     """)    
+
+# --- LOGIC LAYER ---
+def hitung_prediksi(biologi, fisika, inggris):
+    """
+    Logika penentuan prediksi fakultas:
+    - Biologi paling tinggi -> Kedokteran
+    - Fisika paling tinggi   -> Teknik
+    - Inggris paling tinggi  -> Bahasa
+    """
+    if biologi >= fisika and biologi >= inggris:
+        return "Kedokteran"
+    elif fisika >= biologi and fisika >= inggris:
+        return "Teknik"
+    else:
+        return "Bahasa"
+
