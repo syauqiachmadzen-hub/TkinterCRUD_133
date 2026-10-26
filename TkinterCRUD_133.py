@@ -28,3 +28,17 @@ def init_db():
             prediksi_fakultas TEXT NOT NULL
         )
     """)
+
+def add_nilai(nama, biologi, fisika, inggris, prediksi):
+    """Menyimpan data nilai siswa baru ke SQLite."""
+    run_query("""
+        INSERT INTO nilai_siswa (nama_siswa, biologi, fisika, inggris, prediksi_fakultas)
+        VALUES (?, ?, ?, ?, ?)
+    """, (nama, biologi, fisika, inggris, prediksi))
+
+def get_all_nilai():
+    """Mengambil seluruh data nilai dari SQLite."""
+    return run_query("""
+        SELECT id, nama_siswa, biologi, fisika, inggris, prediksi_fakultas 
+        FROM nilai_siswa ORDER BY id DESC
+    """)    
