@@ -58,3 +58,11 @@ def hitung_prediksi(biologi, fisika, inggris):
     else:
         return "Bahasa"
 
+# --- GUI LAYER (Tkinter Application) ---
+class AppPrediksiFakultas:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Aplikasi Prediksi Fakultas - Tkinter & SQLite")
+        self.root.geometry("650x500")
+    
+
