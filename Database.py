@@ -21,3 +21,15 @@ def init_db():
         inggris INTEGER,
         prediksi_fakultas TEXT
     )""")
+
+def insert_nilai(nama, biologi, fisika, inggris, prediksi):
+    """Menyimpan data siswa ke database SQLite."""
+    run_query(
+        """INSERT INTO nilai_siswa (nama_siswa, biologi, fisika, inggris, prediksi_fakultas) 
+           VALUES (?, ?, ?, ?, ?)""",
+        (nama, biologi, fisika, inggris, prediksi)
+    )
+
+def get_all_nilai():
+    """Mengambil seluruh data dari tabel nilai_siswa."""
+    return run_query("SELECT * FROM nilai_siswa")
